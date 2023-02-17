@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface Personaje {
-  nombre: string
-  poder: number
-
-}
+import { Personaje } from '../interfaces/dbz.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -13,32 +8,32 @@ interface Personaje {
 })
 export class MainPageComponent {
 
-  @Input() pers: any[] = []
 
   personajes: Personaje[] = [
     {
-      nombre: 'huio',
+      nombre: 'Goku',
       poder: 0
     },
     {
-      nombre: 'tesr',
+      nombre: 'Vegeta',
       poder: 0
     },
-
   ]
+
   personaje: Personaje = {
     nombre: '',
     poder: 0
   }
 
- //cambiarNombre(event: any) {
- //   console.log(event)
- // }
-
   agregar(){
     if(this.personaje.nombre.trim().length ===0){return}
-    console.log(this.personaje)
+    this.personajes.push( this.personaje) 
+    this.personaje ={
+      nombre: '',
+      poder: 0
+    }
 
+    
   }
 
 }
