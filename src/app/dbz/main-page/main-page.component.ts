@@ -8,7 +8,11 @@ import { Personaje } from '../interfaces/dbz.interface';
 })
 export class MainPageComponent {
 
-
+  personaje: Personaje = {
+    nombre: '',
+    poder: 0
+  }
+  
   personajes: Personaje[] = [
     {
       nombre: 'Goku',
@@ -20,20 +24,5 @@ export class MainPageComponent {
     },
   ]
 
-  personaje: Personaje = {
-    nombre: '',
-    poder: 0
-  }
-
-  agregar(){
-    if(this.personaje.nombre.trim().length ===0){return}
-    this.personajes.push( this.personaje) 
-    this.personaje ={
-      nombre: '',
-      poder: 0
-    }
-
-    
-  }
-
+  
 }
